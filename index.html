@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>王小明 • AI 工程師履歷</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      color: #f2f7ff;
+      background: #08101f;
+      font-family: "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      --glass: rgba(255,255,255,0.12);
+      --glass-border: rgba(255,255,255,0.22);
+      --accent: #9f8cff;
+      --accent-soft: rgba(159,140,255,0.32);
+      --text-soft: rgba(242,247,255,0.78);
+      --shadow: 0 30px 80px rgba(0,0,0,0.24);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at top left, rgba(156, 106, 255, 0.22), transparent 24%),
+                  radial-gradient(circle at 80% 10%, rgba(47, 198, 255, 0.18), transparent 20%),
+                  radial-gradient(circle at 20% 90%, rgba(93, 56, 255, 0.12), transparent 24%),
+                  linear-gradient(180deg, #08101f 0%, #05080f 100%);
+      color: #f7f8fc;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.08), transparent 24%),
+                  radial-gradient(circle at 100% 30%, rgba(255, 255, 255, 0.04), transparent 18%);
+      pointer-events: none;
+    }
+
+    .page-wrap {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 110px 24px 60px;
+    }
+
+    .toc {
+      position: sticky;
+      top: 16px;
+      z-index: 20;
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 12px 16px;
+      margin-bottom: 32px;
+      border-radius: 999px;
+      backdrop-filter: blur(24px);
+      background: rgba(18, 26, 42, 0.64);
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
+    }
+
+    .toc a {
+      flex-shrink: 0;
+      color: #f7f9ff;
+      text-decoration: none;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      background: rgba(255,255,255,0.06);
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+      font-size: 0.95rem;
+    }
+
+    .toc a:hover,
+    .toc a:focus-visible {
+      background: rgba(255,255,255,0.14);
+      border-color: rgba(159,140,255,0.55);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .glass-card {
+      position: relative;
+      backdrop-filter: blur(24px);
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 32px;
+      overflow: hidden;
+    }
+
+    .glass-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(255,255,255,0.10), transparent 50%);
+    }
+
+    .glass-card:hover {
+      transform: translateY(-2px);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: 0 34px 90px rgba(0,0,0,0.28);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 400px) minmax(360px, 1fr);
+      gap: 28px;
+      align-items: center;
+      margin-bottom: 28px;
+    }
+
+    .hero-avatar {
+      width: 160px;
+      height: 160px;
+      border-radius: 32px;
+      background: radial-gradient(circle at top left, rgba(255,255,255,0.42), transparent 30%),
+                  linear-gradient(135deg, rgba(115,99,255,0.9), rgba(72, 191, 255, 0.95));
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      border: 1px solid rgba(255,255,255,0.2);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.24);
+    }
+
+    .hero-copy {
+      display: grid;
+      gap: 16px;
+    }
+
+    .hero-title {
+      margin: 0;
+      font-size: clamp(2.8rem, 5vw, 4rem);
+      line-height: 0.98;
+      letter-spacing: -0.06em;
+    }
+
+    .hero-subtitle {
+      margin: 0;
+      max-width: 620px;
+      color: var(--text-soft);
+      font-size: 1.08rem;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.14);
+      color: #eef2ff;
+    }
+
+    .section-heading {
+      margin: 0 0 20px;
+      font-size: 1.15rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #c7cbff;
+    }
+
+    .about-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .about-copy {
+      color: var(--text-soft);
+      font-size: 1rem;
+      max-width: 780px;
+    }
+
+    .detail-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .badge {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.12);
+      font-size: 0.95rem;
+      color: #f2f7ff;
+    }
+
+    .skill-group {
+      display: grid;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .skill-group h3 {
+      margin: 0;
+      font-size: 1rem;
+      color: #e7eafe;
+    }
+
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .tag {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
+      color: #f2f8ff;
+      font-size: 0.92rem;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 24px;
+      border-left: 1px solid rgba(255,255,255,0.14);
+      display: grid;
+      gap: 24px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: -7px;
+      top: 0;
+      bottom: 0;
+      width: 14px;
+      background: linear-gradient(180deg, rgba(159,140,255,0.55) 0%, rgba(72,191,255,0.1) 100%);
+      border-radius: 999px;
+      opacity: 0.35;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 8px;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -22px;
+      top: 6px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #ffffff 0%, #9f8cff 45%, rgba(255,255,255,0.35) 100%);
+      box-shadow: 0 0 20px rgba(159,140,255,0.35);
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    .timeline-title {
+      margin: 0 0 6px;
+      font-size: 1.05rem;
+      color: #fff;
+    }
+
+    .timeline-meta {
+      margin: 0 10px 12px 0;
+      color: var(--text-soft);
+      font-size: 0.95rem;
+    }
+
+    .timeline-description {
+      margin: 0;
+      color: var(--text-soft);
+      display: grid;
+      gap: 10px;
+    }
+
+    .timeline-description li {
+      list-style: none;
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .timeline-description li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #9f8cff;
+      font-size: 0.85rem;
+      line-height: 1.3;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      padding: 24px;
+      border-radius: 28px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.14);
+      backdrop-filter: blur(18px);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 26px 70px rgba(0,0,0,0.24);
+    }
+
+    .award-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      font-size: 0.96rem;
+      color: #fff;
+    }
+
+    .card-title {
+      margin: 0 0 12px;
+      font-size: 1.1rem;
+      color: #fff;
+    }
+
+    .card-text {
+      margin: 0;
+      color: var(--text-soft);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .project-meta {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      color: #d5dbff;
+      font-size: 0.9rem;
+    }
+
+    .project-meta span {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .contact-buttons {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .contact-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06));
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+      text-align: center;
+    }
+
+    .contact-button:hover,
+    .contact-button:focus-visible {
+      transform: translateY(-2px);
+      border-color: rgba(159,140,255,0.55);
+      background: rgba(255,255,255,0.18);
+      outline: none;
+    }
+
+    @media (max-width: 860px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-avatar {
+        margin: 0 auto;
+      }
+
+      .hero-copy {
+        align-items: center;
+      }
+
+      .contact-buttons {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 620px) {
+      .page-wrap {
+        padding: 90px 16px 40px;
+      }
+
+      .toc {
+        top: 10px;
+        margin-bottom: 24px;
+        padding: 10px 12px;
+      }
+
+      .hero-title {
+        font-size: clamp(2.4rem, 9vw, 3rem);
+      }
+
+      .glass-card {
+        padding: 24px;
+      }
+
+      .contact-buttons {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <nav class="toc" aria-label="頁面導覽">
+      <a href="#about">關於</a>
+      <a href="#skills">技能</a>
+      <a href="#education">學歷</a>
+      <a href="#experience">經歷</a>
+      <a href="#awards">獎項</a>
+      <a href="#projects">作品</a>
+      <a href="#contact">聯絡</a>
+    </nav>
+
+    <section class="section hero">
+      <div class="hero-avatar">王</div>
+      <div class="hero-copy">
+        <div>
+          <p class="section-heading">AI 工程師求職中</p>
+          <h1 class="hero-title">王小明</h1>
+          <p class="hero-subtitle">我是中原大學資訊管理系學生，將 AI 模型能力與行動產品串接在一起，打造直觀且具商業價值的數位體驗。</p>
+        </div>
+        <ul class="pill-list">
+          <li class="pill">AI 工程師</li>
+          <li class="pill">FinTech</li>
+          <li class="pill">顧問業</li>
+          <li class="pill">科技業</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="about" class="section glass-card">
+      <p class="section-heading">About 關於我</p>
+      <div class="about-grid">
+        <div class="about-copy">
+          <p>我目前是中原大學資管系學生，喜歡將 AI 概念拉到實際產品上。從資料分析到介面串接，我享受把複雜問題簡化成可用的功能。</p>
+          <p>我相信設計不是裝飾，工具不是目的，而是讓用戶更快完成任務的橋樑。我想加入善用 AI 協作工具、重視實作與團隊共創的科技團隊。</p>
+        </div>
+        <div>
+          <div class="detail-badges">
+            <span class="badge">求職方向：AI 工程師</span>
+            <span class="badge">所在地：台灣 / 中部</span>
+            <span class="badge">語言：中文、英文</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section glass-card">
+      <p class="section-heading">Skills 核心技能</p>
+      <div class="skill-group">
+        <h3>💻 程式</h3>
+        <div class="tag-cloud">
+          <span class="tag">Swift</span>
+          <span class="tag">Python</span>
+          <span class="tag">SQL</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">Git</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>🤖 AI 協作工具</h3>
+        <div class="tag-cloud">
+          <span class="tag">GitHub Copilot</span>
+          <span class="tag">ChatGPT</span>
+          <span class="tag">Gemini</span>
+          <span class="tag">AI spec driven coding</span>
+          <span class="tag">ROCE prompt engineering</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>📊 專案管理</h3>
+        <div class="tag-cloud">
+          <span class="tag">GitHub 專案</span>
+          <span class="tag">版本控制</span>
+          <span class="tag">問題追蹤</span>
+          <span class="tag">敏捷迭代</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>🏢 語言</h3>
+        <div class="tag-cloud">
+          <span class="tag">中文（母語）</span>
+          <span class="tag">英文（TOEIC 800+）</span>
+          <span class="tag">客語</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>🌱 軟實力</h3>
+        <div class="tag-cloud">
+          <span class="tag">自主學習</span>
+          <span class="tag">跨域溝通</span>
+          <span class="tag">校外志工</span>
+          <span class="tag">專案落地思維</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="section glass-card">
+      <p class="section-heading">Education 學歷</p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3 class="timeline-title">中原大學 • 資訊管理學系</h3>
+          <p class="timeline-meta">2023 - 2027（在學中）</p>
+          <p class="timeline-description">專注 AI 與行動應用整合，修習資料庫設計、演算法與使用者經驗。</p>
+        </div>
+        <div class="timeline-item">
+          <h3 class="timeline-title">軟體系統專題</h3>
+          <p class="timeline-meta">2024 年 2 學期</p>
+          <p class="timeline-description">以團隊協作完成系統原型，結合 AI 建議與使用者流程分析。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section glass-card">
+      <p class="section-heading">Experience 經歷</p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3 class="timeline-title">個人專案：Memorize 卡牌比對</h3>
+          <p class="timeline-meta">2025 年 3 月</p>
+          <ul class="timeline-description">
+            <li>開發翻牌與勝利判斷三大核心互動邏輯。</li>
+            <li>建立 MVVM 資料模型，分離 UI 與商業邏輯。</li>
+            <li>使用 SwiftUI 設計 15 個動畫流程。</li>
+          </ul>
+        </div>
+        <div class="timeline-item">
+          <h3 class="timeline-title">個人專案：Landmark 地標介紹 App</h3>
+          <p class="timeline-meta">2025 年 11 月</p>
+          <ul class="timeline-description">
+            <li>實作景點列表與詳細頁面雙層瀏覽流程。</li>
+            <li>串接資料綁定，保持畫面狀態更新低於 1 frame。</li>
+            <li>全程以 GitHub 控管版本，累積超過 30 次 commit。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="awards" class="section glass-card">
+      <p class="section-heading">Awards 競賽獎項</p>
+      <div class="card-grid">
+        <article class="card">
+          <div class="award-badge">🏆 校內 AI 挑戰賽 第一名</div>
+          <h3 class="card-title">AI 模型優化專案</h3>
+          <p class="card-text">整合語音辨識與推薦演算法，實作模型訓練流程與成果展示。</p>
+        </article>
+        <article class="card">
+          <div class="award-badge">✨ 創新應用獎</div>
+          <h3 class="card-title">智慧行動服務提案</h3>
+          <p class="card-text">提出行動 AI 助手概念，結合使用者情境與商業策略。</p>
+        </article>
+        <article class="card">
+          <div class="award-badge">🥇 全國資訊展 優勝</div>
+          <h3 class="card-title">資料可視化作品</h3>
+          <p class="card-text">以圖表與動畫呈現多維度資料，簡化複雜資訊。</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects" class="section glass-card">
+      <p class="section-heading">Projects 作品集</p>
+      <div class="card-grid">
+        <article class="card">
+          <h3 class="card-title">Memorize 卡牌比對遊戲</h3>
+          <p class="card-text">SwiftUI 遊戲專案，設計翻牌、配對與分數系統，強調學習與互動體驗。</p>
+          <div class="project-meta">
+            <span>SwiftUI</span>
+            <span>AI 概念</span>
+          </div>
+        </article>
+        <article class="card">
+          <h3 class="card-title">Landmark 地標介紹 App</h3>
+          <p class="card-text">旅遊資訊 App，實作景點連結與層級導航，提升使用者瀏覽效率。</p>
+          <div class="project-meta">
+            <span>MVVM</span>
+            <span>資料綁定</span>
+          </div>
+        </article>
+        <article class="card">
+          <h3 class="card-title">AI 助手概念提案</h3>
+          <p class="card-text">企劃與原型整合，展示 AI 協作流程與產品可用性分析。</p>
+          <div class="project-meta">
+            <span>產品設計</span>
+            <span>團隊協作</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="section glass-card">
+      <p class="section-heading">Contact 聯絡</p>
+      <div class="contact-buttons">
+        <a class="contact-button" href="mailto:example@domain.com">Email</a>
+        <a class="contact-button" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="contact-button" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a class="contact-button" href="https://www.instagram.com/" target="_blank" rel="noreferrer">IG</a>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
