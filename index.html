@@ -73,18 +73,20 @@
 
     .toc {
       position: sticky;
-      top: 16px;
+      top: 0;
       z-index: 20;
       display: flex;
+      flex-wrap: nowrap;
       gap: 10px;
       overflow-x: auto;
-      padding: 12px 16px;
+      -webkit-overflow-scrolling: touch;
+      padding: 14px 18px;
       margin-bottom: 32px;
       border-radius: 999px;
-      backdrop-filter: blur(24px);
-      background: rgba(18, 26, 42, 0.64);
+      backdrop-filter: blur(28px);
+      background: rgba(18, 26, 42, 0.72);
       border: 1px solid rgba(255,255,255,0.22);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.16),
+      box-shadow: 0 14px 40px rgba(0,0,0,0.22),
                   inset 0 0 0 1px rgba(255,255,255,0.08);
     }
 
@@ -95,9 +97,10 @@
       padding: 10px 16px;
       border-radius: 999px;
       border: 1px solid transparent;
-      background: rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.1);
       transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
       font-size: 0.95rem;
+      white-space: nowrap;
     }
 
     .toc a:hover,
@@ -578,30 +581,32 @@
       <div class="skill-group">
         <h3>💻 程式</h3>
         <div class="tag-cloud">
-          <span class="tag">Swift</span>
-          <span class="tag">Python</span>
-          <span class="tag">SQL</span>
-          <span class="tag">TypeScript</span>
-          <span class="tag">Git</span>
+          <span class="tag">Swift（熟）</span>
+          <span class="tag">SwiftUI（熟）</span>
+          <span class="tag">Python（熟）</span>
+          <span class="tag">SQL（熟）</span>
+          <span class="tag">TypeScript（會用）</span>
+          <span class="tag">MVVM（會用）</span>
         </div>
       </div>
       <div class="skill-group">
         <h3>🤖 AI 協作工具</h3>
         <div class="tag-cloud">
-          <span class="tag">GitHub Copilot</span>
-          <span class="tag">ChatGPT</span>
-          <span class="tag">Gemini</span>
-          <span class="tag">AI spec driven coding</span>
-          <span class="tag">ROCE prompt engineering</span>
+          <span class="tag">GitHub Copilot（熟）</span>
+          <span class="tag">ChatGPT（熟）</span>
+          <span class="tag">Gemini（會用）</span>
+          <span class="tag">ROCE prompt engineering（熟）</span>
+          <span class="tag">AI spec driven coding（熟）</span>
         </div>
       </div>
       <div class="skill-group">
         <h3>📊 專案管理</h3>
         <div class="tag-cloud">
-          <span class="tag">GitHub 專案</span>
-          <span class="tag">版本控制</span>
-          <span class="tag">問題追蹤</span>
-          <span class="tag">敏捷迭代</span>
+          <span class="tag">GitHub 專案控管（熟）</span>
+          <span class="tag">版本控制（熟）</span>
+          <span class="tag">敏捷迭代（會用）</span>
+          <span class="tag">問題追蹤（會用）</span>
+          <span class="tag">個人專案流程（熟）</span>
         </div>
       </div>
       <div class="skill-group">
@@ -609,16 +614,18 @@
         <div class="tag-cloud">
           <span class="tag">中文（母語）</span>
           <span class="tag">英文（TOEIC 800+）</span>
-          <span class="tag">客語</span>
+          <span class="tag">客語（會話）</span>
+          <span class="tag">技術英文（會用）</span>
         </div>
       </div>
       <div class="skill-group">
         <h3>🌱 軟實力</h3>
         <div class="tag-cloud">
-          <span class="tag">自主學習</span>
-          <span class="tag">跨域溝通</span>
-          <span class="tag">校外志工</span>
-          <span class="tag">專案落地思維</span>
+          <span class="tag">自主學習（熟）</span>
+          <span class="tag">跨域溝通（熟）</span>
+          <span class="tag">專案落地思維（熟）</span>
+          <span class="tag">團隊協作（會用）</span>
+          <span class="tag">校外志工（會用）</span>
         </div>
       </div>
     </section>
@@ -646,18 +653,20 @@
           <h3 class="timeline-title">個人專案：Memorize 卡牌比對</h3>
           <p class="timeline-meta">2025 年 3 月</p>
           <ul class="timeline-description">
-            <li>開發翻牌與勝利判斷三大核心互動邏輯。</li>
-            <li>建立 MVVM 資料模型，分離 UI 與商業邏輯。</li>
-            <li>使用 SwiftUI 設計 15 個動畫流程。</li>
+            <li>開發「Memorize 卡牌比對」遊戲，完成翻牌 / 配對 / 勝利判斷 3 大核心邏輯。</li>
+            <li>建立 MVVM 資料模型，將 UI 與商業邏輯分離為 4 個模組。</li>
+            <li>設計 15 個 SwiftUI 動畫流程，提升操作回饋感。</li>
+            <li>優化互動回應，將畫面切換延遲控制在 1 frame 內。</li>
           </ul>
         </div>
         <div class="timeline-item">
           <h3 class="timeline-title">個人專案：Landmark 地標介紹 App</h3>
           <p class="timeline-meta">2025 年 11 月</p>
           <ul class="timeline-description">
-            <li>實作景點列表與詳細頁面雙層瀏覽流程。</li>
-            <li>串接資料綁定，保持畫面狀態更新低於 1 frame。</li>
-            <li>全程以 GitHub 控管版本，累積超過 30 次 commit。</li>
+            <li>開發「Landmark 地標介紹」App，實作 2 層景點列表與詳細頁面流程。</li>
+            <li>串接 SwiftUI 資料綁定，保持畫面狀態更新低於 1 frame。</li>
+            <li>整合 1 個地標資料來源，支援 20+ 個展示項目。</li>
+            <li>全程以 GitHub 管理版本，累積超過 30 次 commit。</li>
           </ul>
         </div>
       </div>
