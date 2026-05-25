@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>王小明 • AI 工程師履歷</title>
+  <title>Ken • AI 工程師履歷</title>
   <style>
     :root {
       color-scheme: dark;
@@ -28,13 +28,29 @@
       scroll-behavior: smooth;
     }
 
+    @keyframes floatingGradient {
+      0% {
+        background-position: 0% 0%, 100% 100%, 20% 80%, 0% 0%;
+      }
+      50% {
+        background-position: 100% 100%, 0% 0%, 80% 20%, 0% 0%;
+      }
+      100% {
+        background-position: 0% 0%, 100% 100%, 20% 80%, 0% 0%;
+      }
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
-      background: radial-gradient(circle at top left, rgba(156, 106, 255, 0.22), transparent 24%),
-                  radial-gradient(circle at 80% 10%, rgba(47, 198, 255, 0.18), transparent 20%),
-                  radial-gradient(circle at 20% 90%, rgba(93, 56, 255, 0.12), transparent 24%),
-                  linear-gradient(180deg, #08101f 0%, #05080f 100%);
+      background: 
+        radial-gradient(circle at top left, rgba(156, 106, 255, 0.22), transparent 24%),
+        radial-gradient(circle at 80% 10%, rgba(47, 198, 255, 0.18), transparent 20%),
+        radial-gradient(circle at 20% 90%, rgba(93, 56, 255, 0.12), transparent 24%),
+        linear-gradient(180deg, #08101f 0%, #05080f 100%);
+      background-attachment: fixed;
+      background-size: 200% 200%, 200% 200%, 200% 200%, 100% 100%;
+      animation: floatingGradient 12s ease-in-out infinite;
       color: #f7f8fc;
       overflow-x: hidden;
     }
@@ -67,8 +83,9 @@
       border-radius: 999px;
       backdrop-filter: blur(24px);
       background: rgba(18, 26, 42, 0.64);
-      border: 1px solid rgba(255,255,255,0.14);
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.22);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.16),
+                  inset 0 0 0 1px rgba(255,255,255,0.08);
     }
 
     .toc a {
@@ -78,15 +95,15 @@
       padding: 10px 16px;
       border-radius: 999px;
       border: 1px solid transparent;
-      background: rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.08);
       transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
       font-size: 0.95rem;
     }
 
     .toc a:hover,
     .toc a:focus-visible {
-      background: rgba(255,255,255,0.14);
-      border-color: rgba(159,140,255,0.55);
+      background: rgba(255,255,255,0.16);
+      border-color: rgba(159,140,255,0.6);
       transform: translateY(-1px);
       outline: none;
     }
@@ -99,9 +116,9 @@
       position: relative;
       backdrop-filter: blur(24px);
       background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.22);
       border-radius: 28px;
-      box-shadow: var(--shadow);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.24);
       padding: 32px;
       overflow: hidden;
     }
@@ -112,13 +129,14 @@
       inset: 0;
       border-radius: inherit;
       pointer-events: none;
-      background: linear-gradient(180deg, rgba(255,255,255,0.10), transparent 50%);
+      background: linear-gradient(180deg, rgba(255,255,255,0.10) 0%, transparent 50%);
     }
 
     .glass-card:hover {
       transform: translateY(-2px);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
       box-shadow: 0 34px 90px rgba(0,0,0,0.28);
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                  box-shadow 0.25s ease;
     }
 
     .hero {
@@ -180,9 +198,15 @@
       padding: 10px 16px;
       border-radius: 999px;
       font-size: 0.95rem;
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.14);
-      color: #eef2ff;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.22);
+      color: #f2f7ff;
+      transition: all 0.25s ease;
+    }
+
+    .pill:hover {
+      background: rgba(255,255,255,0.14);
+      border-color: rgba(159,140,255,0.6);
     }
 
     .section-heading {
@@ -214,10 +238,16 @@
     .badge {
       padding: 10px 14px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.20);
       font-size: 0.95rem;
       color: #f2f7ff;
+      transition: all 0.25s ease;
+    }
+
+    .badge:hover {
+      background: rgba(255,255,255,0.14);
+      border-color: rgba(159,140,255,0.5);
     }
 
     .skill-group {
@@ -242,15 +272,21 @@
       padding: 10px 14px;
       border-radius: 999px;
       background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.14);
-      color: #f2f8ff;
+      border: 1px solid rgba(255,255,255,0.20);
+      color: #f2f7ff;
       font-size: 0.92rem;
+      transition: all 0.25s ease;
+    }
+
+    .tag:hover {
+      background: rgba(255,255,255,0.14);
+      border-color: rgba(159,140,255,0.5);
     }
 
     .timeline {
       position: relative;
       padding-left: 24px;
-      border-left: 1px solid rgba(255,255,255,0.14);
+      border-left: 1px solid rgba(255,255,255,0.18);
       display: grid;
       gap: 24px;
     }
@@ -265,6 +301,7 @@
       background: linear-gradient(180deg, rgba(159,140,255,0.55) 0%, rgba(72,191,255,0.1) 100%);
       border-radius: 999px;
       opacity: 0.35;
+      pointer-events: none;
     }
 
     .timeline-item {
@@ -281,12 +318,22 @@
       position: absolute;
       left: -22px;
       top: 6px;
-      width: 14px;
-      height: 14px;
+      width: 12px;
+      height: 12px;
       border-radius: 50%;
-      background: radial-gradient(circle, #ffffff 0%, #9f8cff 45%, rgba(255,255,255,0.35) 100%);
-      box-shadow: 0 0 20px rgba(159,140,255,0.35);
-      border: 1px solid rgba(255,255,255,0.3);
+      background: linear-gradient(135deg, #9f8cff 0%, #7b68ee 50%, rgba(159,140,255,0.6) 100%);
+      box-shadow: 
+        0 0 12px rgba(159,140,255,0.6),
+        0 0 24px rgba(159,140,255,0.3),
+        inset 0 0 8px rgba(255,255,255,0.2);
+      border: 1.5px solid rgba(255,255,255,0.4);
+    }
+
+    .timeline-item:hover::before {
+      box-shadow: 
+        0 0 16px rgba(159,140,255,0.8),
+        0 0 32px rgba(159,140,255,0.4),
+        inset 0 0 8px rgba(255,255,255,0.3);
     }
 
     .timeline-title {
@@ -330,16 +377,29 @@
     }
 
     .card {
+      position: relative;
       padding: 24px;
       border-radius: 28px;
       background: rgba(255,255,255,0.10);
-      border: 1px solid rgba(255,255,255,0.14);
-      backdrop-filter: blur(18px);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      border: 1px solid rgba(255,255,255,0.18);
+      backdrop-filter: blur(24px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      overflow: hidden;
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                  box-shadow 0.25s ease;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, transparent 50%);
+      pointer-events: none;
     }
 
     .card:hover {
-      transform: translateY(-3px);
+      transform: translateY(-2px);
       box-shadow: 0 26px 70px rgba(0,0,0,0.24);
     }
 
@@ -378,7 +438,13 @@
       padding: 8px 12px;
       border-radius: 999px;
       background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.16);
+      transition: all 0.25s ease;
+    }
+
+    .project-meta span:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(159,140,255,0.4);
     }
 
     .contact-buttons {
@@ -395,19 +461,25 @@
       padding: 16px 18px;
       border-radius: 18px;
       text-decoration: none;
-      color: #fff;
+      color: #f2f7ff;
       font-weight: 600;
-      border: 1px solid rgba(255,255,255,0.16);
-      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06));
-      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+      border: 1px solid rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.10);
+      backdrop-filter: blur(12px);
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                  border-color 0.25s ease, 
+                  background 0.25s ease,
+                  box-shadow 0.25s ease;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
       text-align: center;
     }
 
     .contact-button:hover,
     .contact-button:focus-visible {
       transform: translateY(-2px);
-      border-color: rgba(159,140,255,0.55);
-      background: rgba(255,255,255,0.18);
+      border-color: rgba(159,140,255,0.6);
+      background: rgba(255,255,255,0.16);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.16);
       outline: none;
     }
 
@@ -468,18 +540,18 @@
     </nav>
 
     <section class="section hero">
-      <div class="hero-avatar">王</div>
+      <div class="hero-avatar">K</div>
       <div class="hero-copy">
         <div>
           <p class="section-heading">AI 工程師求職中</p>
-          <h1 class="hero-title">王小明</h1>
-          <p class="hero-subtitle">我是中原大學資訊管理系學生，將 AI 模型能力與行動產品串接在一起，打造直觀且具商業價值的數位體驗。</p>
+          <h1 class="hero-title">Ken</h1>
+          <p class="hero-subtitle">中原資管學生。我把 AI 概念落地成 iOS 實作，擅用 spec driven coding 與 prompt engineering 快速產出可運行成果。</p>
         </div>
         <ul class="pill-list">
           <li class="pill">AI 工程師</li>
-          <li class="pill">FinTech</li>
-          <li class="pill">顧問業</li>
-          <li class="pill">科技業</li>
+          <li class="pill">iOS 開發</li>
+          <li class="pill">AI 產品</li>
+          <li class="pill">科技團隊</li>
         </ul>
       </div>
     </section>
@@ -488,8 +560,8 @@
       <p class="section-heading">About 關於我</p>
       <div class="about-grid">
         <div class="about-copy">
-          <p>我目前是中原大學資管系學生，喜歡將 AI 概念拉到實際產品上。從資料分析到介面串接，我享受把複雜問題簡化成可用的功能。</p>
-          <p>我相信設計不是裝飾，工具不是目的，而是讓用戶更快完成任務的橋樑。我想加入善用 AI 協作工具、重視實作與團隊共創的科技團隊。</p>
+          <p>我是 Ken，中原資管的學生。做過兩個 iOS App（Memorize 和 Landmark）後才發現，把 AI 概念落地成實際能用的產品，比純學理論爽多了。我喜歡那種用 spec driven coding 和 prompt engineering 快速出成果的節奏——有點像跟 AI 配對編程，又不會被束縛。</p>
+          <p>我相信好工具應該隱形，讓用戶專注目標而不是工具本身。也就是說，設計的價值在於簡化而不是炫耀。我想加入既重視 AI 工具導入、又懂手機應用設計、還願意讓新人快速參與的團隊。最好有點 startup 的靈活感，而不是辦公室政治。</p>
         </div>
         <div>
           <div class="detail-badges">
